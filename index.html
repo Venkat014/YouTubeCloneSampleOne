@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/760a783ab5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Youtube Clone -- RSA Team</title>
+</head>
+<body>
+ <!--
+    menu - <i class="fa-solid fa-bars"></i>
+    search - <i class="fa-solid fa-magnifying-glass"></i>
+    notifi - <i class="fa-solid fa-bell"></i>
+    home   - <i class="fa-regular fa-house"></i>
+    like   - <i class="fa-solid fa-thumbs-up"></i>
+    history - <i class="fa-solid fa-clock-rotate-left"></i>
+    download - <i class="fa-solid fa-arrow-down"></i>
+    watch later - <i class="fa-regular fa-clock"></i>
+    voice - <i class="fa-solid fa-microphone"></i>
+    shorts - <i class="fa-light fa-bolt"></i>
+
+
+    🔹 Navigation & Layout
+        Home → fa-home / home (Material Icons)
+        Trending / Explore → fa-fire / explore
+        Subscriptions → fa-folder-open / subscriptions
+        Library → fa-book / video_library
+        History → fa-history / history
+        Playlist → fa-list / playlist_play
+    🔹 Video Actions
+        Play → fa-play / play_arrow
+        Pause → fa-pause / pause
+        Next / Previous → fa-forward, fa-backward / skip_next, skip_previous
+        Volume / Mute → fa-volume-up, fa-volume-mute / volume_up, volume_off
+        Fullscreen → fa-expand / fullscreen
+    🔹 User Interaction
+        Like (Thumbs Up) → fa-thumbs-up / thumb_up
+        Dislike (Thumbs Down) → fa-thumbs-down / thumb_down
+        Share → fa-share / share
+        Comment → fa-comment / comment
+        Download → fa-download / download
+        Save / Watch Later → fa-clock / watch_later
+    🔹 User & Account
+        Profile / User → fa-user-circle / account_circle
+        Notifications → fa-bell / notifications
+        Settings → fa-cog / settings
+        Logout / Sign In → fa-sign-out-alt, fa-sign-in-alt / login, logout
+    🔹 Search & Upload
+        Search → fa-search / search
+        Upload / Add Video → fa-upload / add_circle
+        Mic / Voice Search → fa-microphone / mic
+ -->
+    <nav class="top-nav-container d-flex flex-row justify-content-between p-2">
+        <div class="nav-left flex-div">
+            <a href="#" id="navMenuIcon"><i class="fa-solid fa-bars" ></i></a>
+            <img src="./images/Youtube-Logo.png" class="logo">
+        </div>
+        <div class="nav-middle flex-div">
+            <div class="search-box flex-div">
+                <input type="text" placeholder="Search">
+                <i class="fa-solid fa-search"></i>
+            </div>
+            <a href="#"><i class="fa-solid fa-microphone"></i></a>
+        </div>
+
+        <div class="nav-right flex-div">
+            <a href="#"><i class="fa-solid fa-plus"></i> Create</a>
+            <i class="fa-regular fa-bell"></i>
+            <i class="fa-regular fa-user-circle"></i>
+        </div>
+    </nav>
+    <div class="bg-container">
+        <nav class="side-nav" id="sideNavBar">
+            <a href="#"><i class="fa-solid fa-home"></i> <p>home</p> </a>
+            <a href="#"><i class="fa-solid fa-bolt"></i> <p>shorts</p> </a>
+            <a href="#"><i class="fa-solid fa-folder-open"></i> <p>subscriptions</p> </a>
+            <a href="#"><i class="fa-solid fa-history"></i> <p>history</p> </a>
+            <a href="#"><i class="fa-solid fa-list"></i> <p>playlist</p> </a>
+            <a href="#"><i class="fa-solid fa-clock"></i> <p>watch later</p> </a>
+            <a href="#"><i class="fa-solid fa-thumbs-up"></i> <p>liked videos</p> </a>
+            <a href="#"><i class="fa-solid fa-arrow-down"></i> <p>downloads</p> </a>
+        </nav>
+        <div class="body-content-conainer" id="result">
+            <!-- <div class="card">
+                <div id="result" class="sub-card"></div>
+            </div> -->
+            <!-- <div class="card" id="result">
+                <p>
+                    Harum voluptas excepturi incidunt iste voluptatum quia iure nihil architecto, quos tenetur soluta cupiditate eos, 
+                    rerum impedit adipisci amet non dolore facere. Dolorem provident nostrum optio harum officia nihil sapiente atque 
+                    laudantium ut modi a, necessitatibus libero accusantium, voluptatum temporibus reiciendis ratione voluptatem! 
+                    Ex modi accusamus molestias eos laborum?Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    Aliquam similique ullam labore. Exercitationem provident natus repellat perferendis quam enim fugiat. 
+                    Provident optio voluptatem cumque illo aut consequuntur. Amet, sed aliquam!</p>
+            </div>
+            <div class="card">
+                <p>
+                    Harum voluptas excepturi incidunt iste voluptatum quia iure nihil architecto, quos tenetur soluta cupiditate eos, 
+                    rerum impedit adipisci amet non dolore facere. Dolorem provident nostrum optio harum officia nihil sapiente atque 
+                    laudantium ut modi a, necessitatibus libero accusantium, voluptatum temporibus reiciendis ratione voluptatem! 
+                    Ex modi accusamus molestias eos laborum?Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    Aliquam similique ullam labore. Exercitationem provident natus repellat perferendis quam enim fugiat. 
+                    Provident optio voluptatem cumque illo aut consequuntur. Amet, sed aliquam!</p>
+            </div>
+            <div class="card">
+                <p>
+                    Harum voluptas excepturi incidunt iste voluptatum quia iure nihil architecto, quos tenetur soluta cupiditate eos, 
+                    rerum impedit adipisci amet non dolore facere. Dolorem provident nostrum optio harum officia nihil sapiente atque 
+                    laudantium ut modi a, necessitatibus libero accusantium, voluptatum temporibus reiciendis ratione voluptatem! 
+                    Ex modi accusamus molestias eos laborum?Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    Aliquam similique ullam labore. Exercitationem provident natus repellat perferendis quam enim fugiat. 
+                    Provident optio voluptatem cumque illo aut consequuntur. Amet, sed aliquam!</p>
+            </div>
+            <div class="card">
+                <p>
+                    Harum voluptas excepturi incidunt iste voluptatum quia iure nihil architecto, quos tenetur soluta cupiditate eos, 
+                    rerum impedit adipisci amet non dolore facere. Dolorem provident nostrum optio harum officia nihil sapiente atque 
+                    laudantium ut modi a, necessitatibus libero accusantium, voluptatum temporibus reiciendis ratione voluptatem! 
+                    Ex modi accusamus molestias eos laborum?Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    Aliquam similique ullam labore. Exercitationem provident natus repellat perferendis quam enim fugiat. 
+                    Provident optio voluptatem cumque illo aut consequuntur. Amet, sed aliquam!</p>
+            </div>
+            <div class="card">
+                <p>
+                    Harum voluptas excepturi incidunt iste voluptatum quia iure nihil architecto, quos tenetur soluta cupiditate eos, 
+                    rerum impedit adipisci amet non dolore facere. Dolorem provident nostrum optio harum officia nihil sapiente atque 
+                    laudantium ut modi a, necessitatibus libero accusantium, voluptatum temporibus reiciendis ratione voluptatem! 
+                    Ex modi accusamus molestias eos laborum?Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    Aliquam similique ullam labore. Exercitationem provident natus repellat perferendis quam enim fugiat. 
+                    Provident optio voluptatem cumque illo aut consequuntur. Amet, sed aliquam!</p>
+            </div>
+            <div class="card">
+                <p>
+                    Harum voluptas excepturi incidunt iste voluptatum quia iure nihil architecto, quos tenetur soluta cupiditate eos, 
+                    rerum impedit adipisci amet non dolore facere. Dolorem provident nostrum optio harum officia nihil sapiente atque 
+                    laudantium ut modi a, necessitatibus libero accusantium, voluptatum temporibus reiciendis ratione voluptatem! 
+                    Ex modi accusamus molestias eos laborum?Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    Aliquam similique ullam labore. Exercitationem provident natus repellat perferendis quam enim fugiat. 
+                    Provident optio voluptatem cumque illo aut consequuntur. Amet, sed aliquam!</p>
+            </div>
+            <div class="card">
+                <p>
+                    Harum voluptas excepturi incidunt iste voluptatum quia iure nihil architecto, quos tenetur soluta cupiditate eos, 
+                    rerum impedit adipisci amet non dolore facere. Dolorem provident nostrum optio harum officia nihil sapiente atque 
+                    laudantium ut modi a, necessitatibus libero accusantium, voluptatum temporibus reiciendis ratione voluptatem! 
+                    Ex modi accusamus molestias eos laborum?Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    Aliquam similique ullam labore. Exercitationem provident natus repellat perferendis quam enim fugiat. 
+                    Provident optio voluptatem cumque illo aut consequuntur. Amet, sed aliquam!</p>
+            </div>
+            <div class="card">
+                <p>
+                    Harum voluptas excepturi incidunt iste voluptatum quia iure nihil architecto, quos tenetur soluta cupiditate eos, 
+                    rerum impedit adipisci amet non dolore facere. Dolorem provident nostrum optio harum officia nihil sapiente atque 
+                    laudantium ut modi a, necessitatibus libero accusantium, voluptatum temporibus reiciendis ratione voluptatem! 
+                    Ex modi accusamus molestias eos laborum?Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    Aliquam similique ullam labore. Exercitationem provident natus repellat perferendis quam enim fugiat. 
+                    Provident optio voluptatem cumque illo aut consequuntur. Amet, sed aliquam!</p>
+            </div><div class="card">
+                <p>
+                    Harum voluptas excepturi incidunt iste voluptatum quia iure nihil architecto, quos tenetur soluta cupiditate eos, 
+                    rerum impedit adipisci amet non dolore facere. Dolorem provident nostrum optio harum officia nihil sapiente atque 
+                    laudantium ut modi a, necessitatibus libero accusantium, voluptatum temporibus reiciendis ratione voluptatem! 
+                    Ex modi accusamus molestias eos laborum?Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    Aliquam similique ullam labore. Exercitationem provident natus repellat perferendis quam enim fugiat. 
+                    Provident optio voluptatem cumque illo aut consequuntur. Amet, sed aliquam!</p>
+            </div>
+            <div class="card">
+                <p>
+                    Harum voluptas excepturi incidunt iste voluptatum quia iure nihil architecto, quos tenetur soluta cupiditate eos, 
+                    rerum impedit adipisci amet non dolore facere. Dolorem provident nostrum optio harum officia nihil sapiente atque 
+                    laudantium ut modi a, necessitatibus libero accusantium, voluptatum temporibus reiciendis ratione voluptatem! 
+                    Ex modi accusamus molestias eos laborum?Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    Aliquam similique ullam labore. Exercitationem provident natus repellat perferendis quam enim fugiat. 
+                    Provident optio voluptatem cumque illo aut consequuntur. Amet, sed aliquam!</p>
+            </div>
+            <div class="card">
+                <p>
+                    Harum voluptas excepturi incidunt iste voluptatum quia iure nihil architecto, quos tenetur soluta cupiditate eos, 
+                    rerum impedit adipisci amet non dolore facere. Dolorem provident nostrum optio harum officia nihil sapiente atque 
+                    laudantium ut modi a, necessitatibus libero accusantium, voluptatum temporibus reiciendis ratione voluptatem! 
+                    Ex modi accusamus molestias eos laborum?Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    Aliquam similique ullam labore. Exercitationem provident natus repellat perferendis quam enim fugiat. 
+                    Provident optio voluptatem cumque illo aut consequuntur. Amet, sed aliquam!</p>
+            </div>
+            <div class="card">
+                <p>
+                    Harum voluptas excepturi incidunt iste voluptatum quia iure nihil architecto, quos tenetur soluta cupiditate eos, 
+                    rerum impedit adipisci amet non dolore facere. Dolorem provident nostrum optio harum officia nihil sapiente atque 
+                    laudantium ut modi a, necessitatibus libero accusantium, voluptatum temporibus reiciendis ratione voluptatem! 
+                    Ex modi accusamus molestias eos laborum?Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    Aliquam similique ullam labore. Exercitationem provident natus repellat perferendis quam enim fugiat. 
+                    Provident optio voluptatem cumque illo aut consequuntur. Amet, sed aliquam!</p>
+            </div> -->
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
